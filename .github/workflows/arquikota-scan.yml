@@ -1,0 +1,32 @@
+name: ArquiKota maintenance scan
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: arquikota-scan
+  cancel-in-progress: true
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run scan:ci
+      - name: Guardar relatório
+        uses: actions/upload-artifact@v4
+        with:
+          name: arquikota-report
+          path: maintenance-report.md
+          retention-days: 30
