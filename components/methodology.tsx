@@ -75,23 +75,23 @@ const SOURCES = [
 
 export default function Methodology() {
   return (
-    <section id="metodologia" className="scroll-mt-20 border-t border-white/[0.06]">
+    <section id="metodologia" className="scroll-mt-20 border-t border-slate-200 bg-white/60">
       <div className="mx-auto max-w-[1480px] px-4 py-14 sm:px-6 lg:px-10 lg:py-16">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <div>
             <span className="kicker">Metodologia</span>
-            <h2 className="mt-4 max-w-sm text-[26px] font-semibold leading-tight tracking-[-0.04em] text-white">
+            <h2 className="mt-4 max-w-sm text-[28px] font-semibold leading-tight tracking-[-0.035em] text-slate-900">
               A prioridade não se adivinha. Calcula-se.
             </h2>
-            <p className="mt-4 max-w-sm text-[12px] leading-6 text-fog">
+            <p className="mt-4 max-w-sm text-[13px] leading-6 text-slate-600">
               O relatório combina o que está declarado no repositório com versões
               publicadas e um catálogo de regras versionado. O resultado é
               reproduzível — não é uma sugestão de IA.
             </p>
 
-            <div className="mt-5 rounded-xl border border-white/[0.07] bg-black/20 p-4">
+            <div className="mt-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
               <span className="kicker">O que muda com o tempo</span>
-              <p className="mt-2 text-[11px] leading-5 text-fog">
+              <p className="mt-2 text-[12px] leading-5 text-slate-600">
                 Dependências recebem patches todas as semanas, APIs são removidas
                 nas versões major e práticas aceites há dois anos deixam de ser
                 suportadas. Uma verificação única envelhece no dia seguinte;
@@ -99,26 +99,26 @@ export default function Methodology() {
               </p>
             </div>
 
-            <div className="mt-5 inline-flex items-center gap-2 rounded-lg border border-white/[0.07] bg-black/20 px-3 py-2 font-mono text-[8.5px] uppercase tracking-[0.1em] text-mist">
-              <span className="h-1 w-1 rounded-full bg-mint" />
-              snapshot de versões · 22 out 2026
+            <div className="mt-5 inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-[10.5px] font-medium text-slate-500">
+              <span className="h-1.5 w-1.5 rounded-full bg-teal-600" />
+              Snapshot de versões · 22 out 2026
             </div>
           </div>
 
-          <div className="grid gap-px overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.06] sm:grid-cols-2">
+          <div className="grid gap-px overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 sm:grid-cols-2">
             {METHODS.map((method) => (
-              <div key={method.id} className="bg-[#080d12] p-5">
+              <div key={method.id} className="bg-white p-5">
                 <div className="flex items-center justify-between">
                   <span className="kicker">{method.id}</span>
-                  <span className="h-1 w-1 rounded-full bg-mint/60" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-sky/60" />
                 </div>
-                <h3 className="mt-3 text-[13px] font-medium text-white/90">
+                <h3 className="mt-3 text-[14px] font-semibold text-slate-900">
                   {method.title}
                 </h3>
-                <code className="mt-2 block font-mono text-[10px] leading-5 text-mint/85">
+                <code className="mt-2 block font-mono text-[10.5px] leading-5 text-mint">
                   {method.formula}
                 </code>
-                <p className="mt-2 text-[10.5px] leading-5 text-mist">{method.body}</p>
+                <p className="mt-2 text-[11.5px] leading-5 text-slate-500">{method.body}</p>
               </div>
             ))}
           </div>
@@ -128,36 +128,36 @@ export default function Methodology() {
           <div className="flex flex-wrap items-end justify-between gap-3">
             <div>
               <span className="kicker">Ciclo de manutenção</span>
-              <h3 className="mt-2 text-[18px] font-semibold tracking-[-0.03em] text-white/90">
+              <h3 className="mt-2 text-[19px] font-semibold tracking-[-0.02em] text-slate-900">
                 Quatro passos, repetidos sem drama.
               </h3>
             </div>
             <span className="chip chip-mint">contínuo</span>
           </div>
 
-          <div className="mt-4 grid gap-px overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.06] sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-4 grid gap-px overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 sm:grid-cols-2 lg:grid-cols-4">
             {CYCLE.map((step, index) => (
-              <div key={step.title} className="bg-[#080d12] p-5">
+              <div key={step.title} className="bg-white p-5">
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-[9px] tracking-[0.16em] text-mint/60">
+                  <span className="text-[11px] font-semibold text-sky">
                     0{index + 1}
                   </span>
-                  <span className="font-mono text-[8px] uppercase tracking-[0.12em] text-mist">
+                  <span className="text-[10.5px] font-medium text-slate-400">
                     {step.title}
                   </span>
                 </div>
-                <h4 className="mt-3 text-[13px] font-medium text-white/90">{step.title}</h4>
-                <p className="mt-2 text-[10.5px] leading-5 text-mist">{step.body}</p>
+                <h4 className="mt-3 text-[14px] font-semibold text-slate-900">{step.title}</h4>
+                <p className="mt-2 text-[11.5px] leading-5 text-slate-500">{step.body}</p>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="mt-10 grid gap-8 border-t border-white/[0.06] pt-7 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
+        <div className="mt-10 grid gap-8 border-t border-slate-200 pt-7 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
           <div>
             <span className="kicker">Limites do modelo</span>
-            <p className="mt-3 max-w-3xl text-[10.5px] leading-5 text-mist">
-              O ArquiKota não substitui <code className="font-mono text-fog">npm audit</code>,
+            <p className="mt-3 max-w-3xl text-[11.5px] leading-5 text-slate-500">
+              O ArquiKota não substitui <code className="font-mono text-slate-700">npm audit</code>,
               testes de integração ou revisão humana. Não procura vulnerabilidades no
               código da aplicação; observa dependências, configuração e práticas
               declaradas no repositório. Versões e cronogramas mudam — confirma sempre
@@ -193,10 +193,10 @@ export default function Methodology() {
                   href={source.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center justify-between gap-3 rounded-lg border border-white/[0.06] bg-black/20 px-3 py-2 text-[10px] text-fog transition hover:border-white/[0.14] hover:text-white"
+                  className="inline-flex items-center justify-between gap-3 rounded-lg border border-slate-200 bg-white px-3 py-2 text-[11.5px] font-medium text-slate-700 transition hover:border-slate-300 hover:text-slate-900"
                 >
                   {source.label}
-                  <ExternalIcon size={11} className="shrink-0 text-mist" />
+                  <ExternalIcon size={11} className="shrink-0 text-slate-400" />
                 </a>
               ))}
             </div>

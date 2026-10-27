@@ -52,23 +52,23 @@ export default function ResolvedCard({
               const stored = storedIds.has(entry.id);
               return (
                 <li key={entry.id} className="flex gap-3">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-mint/25 bg-mint/[0.07] text-mint">
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-teal-200 bg-teal-50 text-mint">
                     <CheckIcon size={10} />
                   </span>
-                  <div className="min-w-0 flex-1 border-b border-white/[0.05] pb-4 last:border-0 last:pb-0">
+                  <div className="min-w-0 flex-1 border-b border-slate-100 pb-4 last:border-0 last:pb-0">
                     <div className="flex flex-wrap items-start justify-between gap-2">
-                      <p className="text-[11.5px] font-medium leading-4 text-white/85">
+                      <p className="text-[12px] font-medium leading-4 text-slate-900">
                         {entry.title}
                       </p>
                       <time
                         dateTime={entry.resolvedAt}
-                        className="shrink-0 font-mono text-[8px] uppercase tracking-[0.06em] text-mist"
+                        className="shrink-0 text-[10.5px] text-slate-500"
                       >
                         {fmtDateShort(entry.resolvedAt)}
                       </time>
                     </div>
                     <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
-                      <span className="font-mono text-[8px] uppercase tracking-[0.08em] text-mist">
+                      <span className="text-[10.5px] font-medium text-slate-500">
                         {KIND_LABEL[entry.category]}
                       </span>
                       {stored && storage !== "loading" ? (
@@ -77,21 +77,21 @@ export default function ResolvedCard({
                         </span>
                       ) : null}
                     </div>
-                    <p className="mt-1.5 text-[10px] leading-4 text-mist">{entry.note}</p>
+                    <p className="mt-1.5 text-[10.5px] leading-4 text-slate-500">{entry.note}</p>
                   </div>
                 </li>
               );
             })}
           </ol>
         ) : (
-          <div className="flex flex-col items-center justify-center rounded-xl border border-white/[0.06] bg-black/20 px-4 py-10 text-center">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-mist">
+          <div className="flex flex-col items-center justify-center rounded-xl border border-slate-200 bg-slate-50 px-4 py-10 text-center">
+            <span className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-400">
               <CheckIcon size={15} />
             </span>
-            <p className="mt-3 text-[11.5px] font-medium text-white/80">
+            <p className="mt-3 text-[12px] font-medium text-slate-900">
               Ainda não há resoluções registadas
             </p>
-            <p className="mt-1 max-w-xs text-[10px] leading-4 text-mist">
+            <p className="mt-1 max-w-xs text-[11px] leading-5 text-slate-500">
               Marca um alerta como resolvido para começar a construir o histórico deste
               projeto.
             </p>
@@ -99,15 +99,15 @@ export default function ResolvedCard({
         )}
 
         {error ? (
-          <div className="mt-4 flex items-start gap-2 rounded-lg border border-amber/20 bg-amber/[0.04] px-3 py-2.5">
+          <div className="mt-4 flex items-start gap-2 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2.5">
             <InfoIcon size={12} className="mt-0.5 shrink-0 text-amber" />
-            <p className="text-[9.5px] leading-4 text-amber/85">{error}</p>
+            <p className="text-[10.5px] leading-4 text-amber">{error}</p>
           </div>
         ) : null}
 
         {storedCount > 0 ? (
-          <div className="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-white/[0.06] pt-3">
-            <span className="font-mono text-[8px] uppercase tracking-[0.08em] text-mist">
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-slate-200 pt-3">
+            <span className="text-[10.5px] text-slate-500">
               {storedCount} {storedCount === 1 ? "resolução guardada" : "resoluções guardadas"}{" "}
               {storage === "supabase" ? "no Supabase" : "neste browser"}
             </span>
@@ -115,18 +115,18 @@ export default function ResolvedCard({
               type="button"
               onClick={onClearStored}
               disabled={clearing || storage === "loading"}
-              className="font-mono text-[8px] uppercase tracking-[0.08em] text-mist underline-offset-4 transition hover:text-white hover:underline disabled:cursor-not-allowed disabled:opacity-40"
+              className="text-[10.5px] font-medium text-slate-500 underline-offset-4 transition hover:text-slate-900 hover:underline disabled:cursor-not-allowed disabled:opacity-40"
             >
               {clearing ? "A limpar…" : "Limpar histórico"}
             </button>
           </div>
         ) : (
-          <p className="mt-4 border-t border-white/[0.06] pt-3 font-mono text-[8px] uppercase tracking-[0.08em] text-mist">
+          <p className="mt-4 border-t border-slate-200 pt-3 text-[10.5px] text-slate-500">
             {storage === "supabase"
-              ? "histórico de demonstração · novas ações guardadas no Supabase"
+              ? "Histórico de demonstração · novas ações guardadas no Supabase"
               : storage === "local"
-                ? "modo local · supabase indisponível; ações guardadas neste browser"
-                : "a sincronizar o histórico com o Supabase…"}
+                ? "Modo local · Supabase indisponível; ações guardadas neste browser"
+                : "A sincronizar o histórico com o Supabase…"}
           </p>
         )}
       </div>

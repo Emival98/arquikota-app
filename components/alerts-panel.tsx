@@ -41,8 +41,8 @@ function AlertCard({
   return (
     <article
       className={cn(
-        "border-t border-white/[0.06] transition-colors first:border-t-0",
-        expanded && "bg-white/[0.014]",
+        "border-t border-slate-200 transition-colors first:border-t-0",
+        expanded && "bg-slate-50/70",
       )}
     >
       <button
@@ -50,7 +50,7 @@ function AlertCard({
         onClick={onToggle}
         aria-expanded={expanded}
         aria-controls={detailId}
-        className="flex w-full items-start gap-3 px-5 py-4 text-left transition hover:bg-white/[0.018] sm:px-6"
+        className="flex w-full items-start gap-3 px-5 py-4 text-left transition hover:bg-slate-50 sm:px-6"
       >
         <span
           className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border"
@@ -67,32 +67,32 @@ function AlertCard({
             <span className={SEVERITY_CHIP[alert.severity]}>
               {SEVERITY_LABEL[alert.severity]}
             </span>
-            <span className="font-mono text-[8px] uppercase tracking-[0.12em] text-mist">
+            <span className="text-[10.5px] font-medium text-slate-500">
               {KIND_LABEL[alert.kind]}
             </span>
             {alert.confidence === "Heurística" ? (
-              <span className="font-mono text-[8px] uppercase tracking-[0.1em] text-mist/70">
+              <span className="text-[10.5px] font-medium text-slate-400">
                 · heurística
               </span>
             ) : null}
           </span>
 
-          <span className="mt-2 block text-[12.5px] font-medium leading-5 text-white/90">
+          <span className="mt-2 block text-[13px] font-medium leading-5 text-slate-900">
             {alert.title}
           </span>
 
           {alert.current || alert.recommended ? (
             <span className="mt-1.5 flex flex-wrap items-center gap-1.5">
               {alert.current ? (
-                <span className="rounded border border-white/[0.08] bg-black/30 px-1.5 py-0.5 font-mono text-[8.5px] text-fog">
+                <span className="rounded border border-slate-200 bg-slate-100 px-1.5 py-0.5 font-mono text-[9.5px] text-slate-600">
                   {alert.current}
                 </span>
               ) : null}
               {alert.current && alert.recommended ? (
-                <ArrowRight size={10} className="shrink-0 text-mist" />
+                <ArrowRight size={10} className="shrink-0 text-slate-400" />
               ) : null}
               {alert.recommended ? (
-                <span className="rounded border border-mint/20 bg-mint/[0.055] px-1.5 py-0.5 font-mono text-[8.5px] text-mint/90">
+                <span className="rounded border border-teal-200 bg-teal-50 px-1.5 py-0.5 font-mono text-[9.5px] text-teal-700">
                   {alert.recommended}
                 </span>
               ) : null}
@@ -103,7 +103,7 @@ function AlertCard({
         <ChevronDown
           size={14}
           className={cn(
-            "mt-1 shrink-0 text-mist transition-transform",
+            "mt-1 shrink-0 text-slate-400 transition-transform",
             expanded && "rotate-180",
           )}
         />
@@ -111,14 +111,14 @@ function AlertCard({
 
       {expanded ? (
         <div id={detailId} className="px-5 pb-5 sm:px-6">
-          <p className="max-w-3xl text-[11px] leading-5 text-fog">{alert.summary}</p>
+          <p className="max-w-3xl text-[12px] leading-5 text-slate-600">{alert.summary}</p>
 
-          <div className="mt-3 rounded-lg border border-coral/15 bg-coral/[0.035] p-3">
+          <div className="mt-3 rounded-lg border border-red-200 bg-red-50 p-3">
             <div className="flex items-center gap-1.5">
-              <AlertIcon size={11} className="text-coral/80" />
-              <span className="kicker">Se ignorares</span>
+              <AlertIcon size={11} className="text-red-600" />
+              <span className="kicker text-red-700">Se ignorares</span>
             </div>
-            <p className="mt-1.5 text-[10.5px] leading-5 text-fog">{alert.risk}</p>
+            <p className="mt-1.5 text-[11.5px] leading-5 text-slate-600">{alert.risk}</p>
           </div>
 
           <div className="mt-3">
@@ -135,9 +135,9 @@ function AlertCard({
           </div>
 
           <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
-            <div className="flex flex-wrap items-center gap-2 font-mono text-[8px] uppercase tracking-[0.1em] text-mist">
+            <div className="flex flex-wrap items-center gap-2 text-[10.5px] font-medium text-slate-500">
               <span>esforço {alert.effort.toLowerCase()}</span>
-              <span className="h-2.5 w-px bg-white/10" />
+              <span className="h-2.5 w-px bg-slate-300" />
               <span>{alert.confidence.toLowerCase()}</span>
             </div>
 
@@ -147,7 +147,7 @@ function AlertCard({
                   href={alert.docsUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex h-7 items-center gap-1.5 rounded-lg border border-white/10 px-2.5 font-mono text-[8px] uppercase tracking-[0.08em] text-fog transition hover:border-white/20 hover:text-white"
+                  className="inline-flex h-8 items-center gap-1.5 rounded-lg border border-slate-300 bg-white px-2.5 text-[11px] font-medium text-slate-600 transition hover:border-slate-400 hover:text-slate-900"
                 >
                   Documentação
                   <ExternalIcon size={10} />
@@ -156,7 +156,7 @@ function AlertCard({
               <button
                 type="button"
                 onClick={onResolve}
-                className="inline-flex h-7 items-center gap-1.5 rounded-lg border border-mint/25 bg-mint/[0.07] px-2.5 font-mono text-[8px] uppercase tracking-[0.08em] text-mint transition hover:bg-mint/[0.11]"
+                className="inline-flex h-8 items-center gap-1.5 rounded-lg border border-teal-300 bg-teal-50 px-2.5 text-[11px] font-semibold text-teal-700 transition hover:bg-teal-100"
               >
                 <CheckIcon size={10} />
                 Marcar resolvido
@@ -228,14 +228,14 @@ export default function AlertsPanel({
               aria-pressed={active}
               onClick={() => setFilter(value)}
               className={cn(
-                "inline-flex h-7 items-center gap-1.5 rounded-full border px-2.5 font-mono text-[8.5px] uppercase tracking-[0.06em] transition",
+                "inline-flex h-7 items-center gap-1.5 rounded-full border px-2.5 text-[10.5px] font-medium transition",
                 active
-                  ? "border-mint/35 bg-mint/[0.08] text-mint"
-                  : "border-white/[0.07] text-mist hover:border-white/[0.14] hover:text-fog",
+                  ? "border-blue-300 bg-blue-50 text-sky"
+                  : "border-slate-200 text-slate-500 hover:border-slate-300 hover:text-slate-700",
               )}
             >
               {FILTER_LABEL[value]}
-              <span className={cn("tabular-nums", active ? "text-mint/70" : "text-mist/70")}>
+              <span className={cn("tabular-nums", active ? "text-sky/80" : "text-slate-400")}>
                 {counts[value]}
               </span>
             </button>
@@ -243,7 +243,7 @@ export default function AlertsPanel({
         })}
       </div>
 
-      <div className="mt-4 flex-1 border-t border-white/[0.06]">
+      <div className="mt-4 flex-1 border-t border-slate-200">
         {visible.length > 0 ? (
           visible.map((alert) => (
             <AlertCard
@@ -256,13 +256,13 @@ export default function AlertsPanel({
           ))
         ) : (
           <div className="flex flex-col items-center justify-center px-6 py-12 text-center">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full border border-mint/20 bg-mint/[0.06] text-mint">
+            <span className="flex h-9 w-9 items-center justify-center rounded-full border border-teal-200 bg-teal-50 text-mint">
               <CheckIcon size={16} />
             </span>
-            <p className="mt-3 text-[12px] font-medium text-white/85">
+            <p className="mt-3 text-[12.5px] font-medium text-slate-900">
               {alerts.length === 0 ? "Nenhum alerta ativo" : "Nada neste filtro"}
             </p>
-            <p className="mt-1 max-w-xs text-[10.5px] leading-4 text-mist">
+            <p className="mt-1 max-w-xs text-[11px] leading-5 text-slate-500">
               {alerts.length === 0
                 ? "As dependências e configurações verificadas estão em dia. Mantém a cadência para detetar a próxima alteração."
                 : "Escolhe outro nível de urgência para ver os restantes alertas."}
@@ -271,7 +271,7 @@ export default function AlertsPanel({
         )}
       </div>
 
-      <div className="border-t border-white/[0.06] px-5 py-3 font-mono text-[8px] uppercase tracking-[0.1em] text-mist sm:px-6">
+      <div className="border-t border-slate-200 px-5 py-3 text-[10.5px] text-slate-500 sm:px-6">
         {alerts.length} {alerts.length === 1 ? "alerta ativo" : "alertas ativos"} · score
         calculado por severidade
       </div>

@@ -49,7 +49,7 @@ export default function ScanForm({
             <div
               role="group"
               aria-label="Origem da verificação"
-              className="grid grid-cols-2 gap-1 rounded-xl border border-white/[0.07] bg-black/20 p-1"
+              className="grid grid-cols-2 gap-1 rounded-xl border border-slate-200 bg-slate-100 p-1"
             >
               {(
                 [
@@ -63,10 +63,10 @@ export default function ScanForm({
                   aria-pressed={source === option.value}
                   onClick={() => onSourceChange(option.value)}
                   className={cn(
-                    "h-9 rounded-lg font-mono text-[9px] uppercase tracking-[0.1em] transition",
+                    "h-9 rounded-lg text-[11.5px] font-semibold transition",
                     source === option.value
-                      ? "bg-white/[0.075] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
-                      : "text-mist hover:text-fog",
+                      ? "bg-white text-slate-900 shadow-sm"
+                      : "text-slate-500 hover:text-slate-800",
                   )}
                 >
                   {option.label}
@@ -88,14 +88,14 @@ export default function ScanForm({
                     className="preset-button w-full"
                   >
                     <span className="flex w-full items-baseline justify-between gap-2">
-                      <span className="preset-label text-[11.5px] font-medium text-white/85">
+                      <span className="preset-label text-[12px] font-semibold text-slate-900">
                         {preset.name}
                       </span>
-                      <span className="font-mono text-[8px] uppercase tracking-[0.08em] text-mist">
+                      <span className="text-[10px] font-medium text-slate-500">
                         {preset.tagline}
                       </span>
                     </span>
-                    <span className="mt-1 text-[9.5px] leading-4 text-mist">
+                    <span className="mt-1 text-[10.5px] leading-4 text-slate-500">
                       {preset.description}
                     </span>
                   </button>
@@ -124,7 +124,7 @@ export default function ScanForm({
                   aria-describedby="repo-help"
                 />
               </div>
-              <p id="repo-help" className="mt-2 text-[9.5px] leading-4 text-mist">
+              <p id="repo-help" className="mt-2 text-[10.5px] leading-4 text-slate-500">
                 Só leitura. Também aceita o URL completo do GitHub. Nenhum token é
                 enviado para o browser.
               </p>
@@ -148,19 +148,21 @@ export default function ScanForm({
                   className={cn(
                     "rounded-lg border px-2.5 py-2 text-left transition",
                     cadence === option.value
-                      ? "border-mint/35 bg-mint/[0.06]"
-                      : "border-white/[0.07] bg-white/[0.02] hover:border-white/[0.14]",
+                      ? "border-teal-300 bg-teal-50"
+                      : "border-slate-200 bg-white hover:border-slate-300",
                   )}
                 >
                   <span
                     className={cn(
-                      "block font-mono text-[9px] uppercase tracking-[0.08em]",
-                      cadence === option.value ? "text-mint" : "text-fog",
+                      "block text-[11.5px] font-semibold",
+                      cadence === option.value ? "text-mint" : "text-slate-700",
                     )}
                   >
                     {option.label}
                   </span>
-                  <span className="mt-1 block text-[8.5px] text-mist">{option.note}</span>
+                  <span className="mt-0.5 block text-[9.5px] text-slate-500">
+                    {option.note}
+                  </span>
                 </button>
               ))}
             </div>
@@ -170,7 +172,7 @@ export default function ScanForm({
         {error ? (
           <div
             role="alert"
-            className="mt-4 rounded-lg border border-coral/25 bg-coral/[0.06] px-3 py-2 text-[10.5px] leading-4 text-coral"
+            className="mt-4 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-[11px] leading-5 text-red-700"
           >
             {error}
           </div>
@@ -191,8 +193,8 @@ export default function ScanForm({
             )}
           </button>
 
-          <div className="mt-3 flex flex-wrap items-center justify-between gap-2 font-mono text-[7.5px] uppercase tracking-[0.1em] text-mist">
-            <span>última leitura · {fmtDateShort(report.scannedAt)}</span>
+          <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-[10.5px] text-slate-500">
+            <span>Última leitura · {fmtDateShort(report.scannedAt)}</span>
             <span>
               {report.project.branch} · {report.project.runtime}
             </span>

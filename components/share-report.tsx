@@ -87,19 +87,21 @@ export default function ShareReport({
       />
 
       <form onSubmit={handleSubmit} className="mt-4 flex flex-1 flex-col px-5 pb-5 sm:px-6">
-        <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 rounded-xl border border-white/[0.06] bg-black/20 px-3.5 py-3">
+        <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-3">
           <div className="min-w-0">
             <span className="kicker">Resumo a enviar</span>
-            <p className="mt-1 truncate text-[11px] text-white/85">{report.project.name}</p>
+            <p className="mt-1 truncate text-[12px] font-medium text-slate-900">
+              {report.project.name}
+            </p>
           </div>
-          <div className="flex flex-wrap items-center gap-2 font-mono text-[9px] uppercase tracking-[0.08em] text-mist">
-            <span className="text-[16px] leading-none tracking-[-0.04em] text-white/90">
+          <div className="flex flex-wrap items-center gap-2 text-[10.5px] font-medium text-slate-500">
+            <span className="text-[17px] font-semibold leading-none tracking-[-0.03em] text-slate-900">
               {score}
             </span>
             <span>/100</span>
-            <span className="h-3 w-px bg-white/10" />
+            <span className="h-3 w-px bg-slate-300" />
             <span style={{ color: STATUS_COLOR[status] }}>{verdict}</span>
-            <span className="h-3 w-px bg-white/10" />
+            <span className="h-3 w-px bg-slate-300" />
             <span>{counts.critical} crít.</span>
           </div>
         </div>
@@ -125,7 +127,7 @@ export default function ShareReport({
               aria-describedby="report-email-help"
             />
           </div>
-          <p id="report-email-help" className="mt-2 text-[9.5px] leading-4 text-mist">
+          <p id="report-email-help" className="mt-2 text-[10.5px] leading-4 text-slate-500">
             O destinatário recebe o score, o estado, as contagens de alertas e a prioridade
             imediata. Limite de 5 envios por 10 minutos.
           </p>
@@ -134,7 +136,7 @@ export default function ShareReport({
         {error ? (
           <div
             role="alert"
-            className="mt-3 rounded-lg border border-coral/25 bg-coral/[0.06] px-3 py-2 text-[10.5px] leading-4 text-coral"
+            className="mt-3 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-[11px] leading-5 text-red-700"
           >
             {error}
           </div>
@@ -143,7 +145,7 @@ export default function ShareReport({
         {sentTo ? (
           <div
             role="status"
-            className="mt-3 flex items-start gap-2 rounded-lg border border-mint/25 bg-mint/[0.06] px-3 py-2 text-[10.5px] leading-4 text-mint"
+            className="mt-3 flex items-start gap-2 rounded-lg border border-teal-200 bg-teal-50 px-3 py-2 text-[11px] leading-5 text-teal-700"
           >
             <CheckIcon size={12} className="mt-0.5 shrink-0" />
             <span>Relatório enviado para {sentTo}. Verifica também a pasta de spam.</span>
@@ -164,9 +166,9 @@ export default function ShareReport({
               </>
             )}
           </button>
-          <p className="mt-3 flex items-center gap-1.5 font-mono text-[7.5px] uppercase tracking-[0.1em] text-mist">
-            <InfoIcon size={10} className="shrink-0 text-mist" />
-            leitura {fmtDateShort(report.scannedAt)} · via EmailJS
+          <p className="mt-3 flex items-center gap-1.5 text-[10.5px] text-slate-500">
+            <InfoIcon size={10} className="shrink-0" />
+            Leitura {fmtDateShort(report.scannedAt)} · via EmailJS
           </p>
         </div>
       </form>

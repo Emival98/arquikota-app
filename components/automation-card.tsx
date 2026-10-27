@@ -25,45 +25,45 @@ export default function AutomationCard({
       />
 
       <div className="mt-4 px-5 pb-5 sm:px-6">
-        <div className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-white/[0.07] bg-white/[0.06]">
-          <div className="bg-[#080d12] p-3.5">
+        <div className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-slate-200 bg-slate-200">
+          <div className="bg-white p-3.5">
             <span className="kicker">Cadência</span>
-            <p className="mt-1.5 text-[11px] leading-4 text-white/85">
+            <p className="mt-1.5 text-[12px] font-medium leading-4 text-slate-900">
               {automation.scheduleLabel}
             </p>
-            <code className="mt-1 block font-mono text-[8.5px] text-mist">{automation.cron}</code>
+            <code className="mt-1 block font-mono text-[9.5px] text-slate-500">{automation.cron}</code>
           </div>
-          <div className="bg-[#080d12] p-3.5">
+          <div className="bg-white p-3.5">
             <span className="kicker">Próxima execução</span>
             <p
               className={cn(
-                "mt-1.5 text-[11px] leading-4",
-                automation.configured ? "text-white/85" : "text-mist",
+                "mt-1.5 text-[12px] font-medium leading-4",
+                automation.configured ? "text-slate-900" : "text-slate-500",
               )}
             >
               {automation.nextRunLabel}
             </p>
-            <p className="mt-1 font-mono text-[8.5px] text-mist">
+            <p className="mt-1 font-mono text-[9.5px] text-slate-500">
               última · {fmtDateShort(automation.lastScanAt)}
             </p>
           </div>
         </div>
 
-        <div className="mt-3 rounded-xl border border-white/[0.06] bg-black/20 p-3.5">
+        <div className="mt-3 rounded-xl border border-slate-200 bg-slate-50 p-3.5">
           <div className="flex flex-wrap items-start justify-between gap-2">
             <div className="min-w-0">
               <span className="kicker">Workflow</span>
-              <p className="mt-1 break-all font-mono text-[9px] leading-4 text-fog">
+              <p className="mt-1 break-all font-mono text-[10px] leading-4 text-slate-600">
                 {automation.path}
               </p>
             </div>
             <CopyButton text={automation.yaml} label="Copiar YAML" />
           </div>
 
-          <details className="code-details mt-3 border-t border-white/[0.06] pt-3">
-            <summary className="flex cursor-pointer items-center justify-between gap-2 text-[10px] text-fog">
+          <details className="code-details mt-3 border-t border-slate-200 pt-3">
+            <summary className="flex cursor-pointer items-center justify-between gap-2 text-[11px] font-medium text-slate-600">
               Ver conteúdo do workflow
-              <ChevronDown size={12} className="code-chevron text-mist transition-transform" />
+              <ChevronDown size={12} className="code-chevron text-slate-400 transition-transform" />
             </summary>
             <pre className="code-block mt-2 max-h-[280px] overflow-y-auto">
               <code>{automation.yaml}</code>
@@ -73,19 +73,19 @@ export default function AutomationCard({
 
         {automation.configured ? (
           <div className="mt-3 flex items-start gap-2">
-            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 animate-pulse-soft rounded-full bg-mint" />
-            <p className="text-[10px] leading-4 text-mist">
+            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 animate-pulse-soft rounded-full bg-emerald-500" />
+            <p className="text-[10.5px] leading-4 text-slate-500">
               Ativo. Em cada execução o workflow instala as dependências, corre{" "}
-              <code className="font-mono text-fog">npm run scan:ci</code> e publica{" "}
-              <code className="font-mono text-fog">maintenance-report.md</code> como artefacto.
-              As permissões ficam limitadas a <code className="font-mono text-fog">contents: read</code>.
+              <code className="font-mono text-slate-700">npm run scan:ci</code> e publica{" "}
+              <code className="font-mono text-slate-700">maintenance-report.md</code> como artefacto.
+              As permissões ficam limitadas a <code className="font-mono text-slate-700">contents: read</code>.
             </p>
           </div>
         ) : (
-          <div className="mt-3 rounded-lg border border-amber/20 bg-amber/[0.04] px-3 py-2.5">
+          <div className="mt-3 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2.5">
             <div className="flex items-start gap-2">
               <InfoIcon size={12} className="mt-0.5 shrink-0 text-amber" />
-              <p className="text-[10px] leading-4 text-amber/85">
+              <p className="text-[10.5px] leading-4 text-amber">
                 Copia o YAML para <code className="font-mono">{automation.path}</code> e faz
                 commit. A partir daí a análise deixa de depender de uma verificação manual.
               </p>

@@ -1,6 +1,6 @@
 # ArquiKota — Documentação do projeto
 
-**Trabalho n.º 16 · ArquiKota · maintenance studio**
+**Trabalho n.º 16 · ArquiKota · monitor de manutenção contínua**
 Monitor de manutenção contínua para projetos Next.js/Vercel.
 
 Data de referência: outubro de 2026.
@@ -47,7 +47,7 @@ O objetivo pedagógico é mostrar que manutenção não é uma verificação ún
 | Camada | Tecnologia | Uso no projeto |
 | --- | --- | --- |
 | Framework | Next.js 16.4 (App Router) | Página, API Routes e metadados. |
-| UI | React 19.3, Tailwind CSS 4.3 | Painel responsivo com identidade “blueprint” escura. |
+| UI | React 19.3, Tailwind CSS 4.3 | Painel responsivo com identidade corporativa clara: azul-marinho, superfícies brancas e hierarquia tipográfica sóbria. |
 | Linguagem | TypeScript 5.9 | Contratos de dados, motor de regras e validação. |
 | Runtime | Node.js 24 | Servidor Next e script de CI. |
 | Base de dados | Supabase (Postgres) | Histórico de resoluções por projeto. |

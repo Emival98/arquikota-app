@@ -93,8 +93,8 @@ export default function HistoryCard({
         >
           <defs>
             <linearGradient id="history-area" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#8ef0c2" stopOpacity="0.18" />
-              <stop offset="100%" stopColor="#8ef0c2" stopOpacity="0" />
+              <stop offset="0%" stopColor="#1d4ed8" stopOpacity="0.16" />
+              <stop offset="100%" stopColor="#1d4ed8" stopOpacity="0" />
             </linearGradient>
           </defs>
 
@@ -107,11 +107,11 @@ export default function HistoryCard({
                   x2={WIDTH - PAD.right}
                   y1={y}
                   y2={y}
-                  stroke="#1b2631"
+                  stroke="#e2e8f0"
                   strokeWidth="1"
                   strokeDasharray="2 4"
                 />
-                <text x={2} y={y + 2.5} fill="#647383" fontSize="7" fontFamily="monospace">
+                <text x={2} y={y + 2.5} fill="#64748b" fontSize="7" fontFamily="monospace">
                   {value}
                 </text>
               </g>
@@ -125,16 +125,16 @@ export default function HistoryCard({
                 x2={WIDTH - PAD.right}
                 y1={threshold.y}
                 y2={threshold.y}
-                stroke="#8ef0c2"
-                strokeOpacity="0.28"
+                stroke="#1d4ed8"
+                strokeOpacity="0.3"
                 strokeWidth="1"
               />
               <text
                 x={WIDTH - PAD.right}
                 y={threshold.y - 3}
                 textAnchor="end"
-                fill="#8ef0c2"
-                fillOpacity="0.6"
+                fill="#1d4ed8"
+                fillOpacity="0.7"
                 fontSize="6.5"
                 fontFamily="monospace"
               >
@@ -148,7 +148,7 @@ export default function HistoryCard({
             <path
               d={line}
               fill="none"
-              stroke="#8ef0c2"
+              stroke="#1d4ed8"
               strokeWidth="1.8"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -161,9 +161,9 @@ export default function HistoryCard({
               cx={point.x}
               cy={point.y}
               r={index === points.length - 1 ? 3.2 : 1.8}
-              fill={index === points.length - 1 ? STATUS_COLOR[status] : "#8ef0c2"}
-              fillOpacity={index === points.length - 1 ? 1 : 0.65}
-              stroke={index === points.length - 1 ? "#071019" : "none"}
+              fill={index === points.length - 1 ? STATUS_COLOR[status] : "#1d4ed8"}
+              fillOpacity={index === points.length - 1 ? 1 : 0.55}
+              stroke={index === points.length - 1 ? "#ffffff" : "none"}
               strokeWidth={index === points.length - 1 ? 1.6 : 0}
             />
           ))}
@@ -171,7 +171,7 @@ export default function HistoryCard({
           <text
             x={PAD.left}
             y={HEIGHT - 6}
-            fill="#647383"
+            fill="#64748b"
             fontSize="6.8"
             fontFamily="monospace"
           >
@@ -182,7 +182,7 @@ export default function HistoryCard({
               x={WIDTH - PAD.right}
               y={HEIGHT - 6}
               textAnchor="end"
-              fill="#647383"
+              fill="#64748b"
               fontSize="6.8"
               fontFamily="monospace"
             >
@@ -193,7 +193,7 @@ export default function HistoryCard({
               x={lastPoint.x}
               y={lastPoint.y - 9}
               textAnchor="middle"
-              fill="#9cabba"
+              fill="#475569"
               fontSize="7"
               fontFamily="monospace"
             >
@@ -203,18 +203,18 @@ export default function HistoryCard({
         </svg>
       </div>
 
-      <div className="mt-auto grid grid-cols-3 gap-3 border-t border-white/[0.06] px-5 py-3.5 sm:px-6">
+      <div className="mt-auto grid grid-cols-3 gap-3 border-t border-slate-200 px-5 py-3.5 sm:px-6">
         <div>
           <span className="kicker">Leituras</span>
-          <p className="mt-1 font-mono text-[12px] text-white/85">{history.length}</p>
+          <p className="mt-1 font-mono text-[13px] text-slate-900">{history.length}</p>
         </div>
         <div>
           <span className="kicker">Críticos agora</span>
-          <p className="mt-1 font-mono text-[12px] text-white/85">{counts.critical}</p>
+          <p className="mt-1 font-mono text-[13px] text-slate-900">{counts.critical}</p>
         </div>
         <div>
           <span className="kicker">Score atual</span>
-          <p className="mt-1 font-mono text-[12px] text-white/85">{score}</p>
+          <p className="mt-1 font-mono text-[13px] text-slate-900">{score}</p>
         </div>
       </div>
     </Panel>

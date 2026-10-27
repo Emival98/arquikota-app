@@ -47,10 +47,10 @@ export default function CopyButton({
       type="button"
       onClick={copy}
       className={cn(
-        "inline-flex h-7 items-center gap-1.5 rounded-lg border px-2.5 font-mono text-[8.5px] uppercase tracking-[0.08em] transition",
+        "inline-flex h-7 items-center gap-1.5 rounded-lg border px-2.5 text-[10.5px] font-medium transition",
         copied
-          ? "border-mint/30 bg-mint/[0.08] text-mint"
-          : "border-white/10 bg-white/[0.02] text-fog hover:border-white/20 hover:text-white",
+          ? "border-teal-300 bg-teal-50 text-mint"
+          : "border-slate-300 bg-white text-slate-600 hover:border-slate-400 hover:text-slate-900",
         className,
       )}
       aria-label={copied ? "Copiado" : label}

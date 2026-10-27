@@ -109,29 +109,21 @@ export function LogoMark({ size = 34 }: { size?: number }) {
       className="shrink-0"
     >
       <defs>
-        <linearGradient id="ak-logo" x1="8" y1="28" x2="28" y2="6" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#5fd6a4" />
-          <stop offset="1" stopColor="#b6f7d9" />
+        <linearGradient id="ak-logo" x1="4" y1="32" x2="32" y2="4" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#0F2A4A" />
+          <stop offset="1" stopColor="#1D4ED8" />
         </linearGradient>
       </defs>
-      <rect x="0.75" y="0.75" width="34.5" height="34.5" rx="10.5" fill="#0A1118" />
-      <rect
-        x="0.75"
-        y="0.75"
-        width="34.5"
-        height="34.5"
-        rx="10.5"
-        stroke="rgba(255,255,255,0.12)"
-      />
+      <rect x="0.75" y="0.75" width="34.5" height="34.5" rx="10" fill="url(#ak-logo)" />
       <path
         d="M10 25.5 18 9l8 16.5"
-        stroke="url(#ak-logo)"
+        stroke="#FFFFFF"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path d="M14 19.5h8" stroke="#8ef0c2" strokeOpacity="0.55" strokeWidth="1.5" />
-      <circle cx="18" cy="9" r="1.6" fill="#b6f7d9" />
+      <path d="M14 19.5h8" stroke="#7DD3C7" strokeWidth="1.6" strokeLinecap="round" />
+      <circle cx="18" cy="9" r="1.7" fill="#FFFFFF" />
     </svg>
   );
 }
